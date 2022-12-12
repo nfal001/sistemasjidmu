@@ -86,11 +86,12 @@
                     title: `Memasuki Waktu Sholat ${sholat}!`,
                     html: "Hitung Waktu Mundur Iqomah <br/> <strong></strong> <br/><br/>",
                     timer: seconds * 1000,
+                    showConfirmButton: false,
                     didOpen: () => {
                         const content = Swal.getHtmlContainer();
                         const $ = content.querySelector.bind(content);
 
-                        Swal.showLoading();
+                        // Swal.showLoading();
 
                         function toggleButtons() {
                             stop.disabled = !Swal.isTimerRunning();
@@ -114,10 +115,11 @@
                         Swal.fire({
                             title: "Waktunya IQOMAH",
                             html: "menutup dalam <b></b>",
-                            timer: 20000,
+                            timer: 40000,
+                            showConfirmButton: false,
                             // timerProgressBar: true,
                             didOpen: () => {
-                                Swal.showLoading();
+                                // Swal.showLoading();
                                 const b =
                                     Swal.getHtmlContainer().querySelector("b");
                                 timerInterval = setInterval(() => {
