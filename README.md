@@ -23,24 +23,24 @@ Website summary jadwal sholat untuk masjid dengan beberapa fitur tambahan
 
 #### 1. Clone Repository
 
-```http
-  git clone
-  cd sistemasjid
-  composer install
-  npm install
-  copy .env.example .env
+```
+ git clone
+ cd sistemasjid
+ composer install
+ npm install
+ copy .env.example .env
 ```
 
 #### 2. Instalasi Website
 
-```http
-  php artisan key:generate
+```
+ php artisan key:generate
 ```
 
 #### 3. Menjalankan Website
 
-```http
-  php artisan serve
+```
+ php artisan serve
 ```
 
 ## License
