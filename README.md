@@ -26,7 +26,7 @@ Website summary jadwal sholat untuk masjid dengan beberapa fitur tambahan
 #### 1. Clone Repository
 
 ```
- git clone
+ git clone https://github.com/nfal001/sistemasjidmu.git
  cd sistemasjid
  composer install
  npm install
