@@ -6,6 +6,10 @@
 
 Website summary jadwal sholat untuk masjid dengan beberapa fitur tambahan
 
+## Preview
+
+![App Screenshot](https://raw.githubusercontent.com/nfal001/sistemasjidmu/master/.github/SS.jpg)
+
 ## Fitur
 
 -   dump data jadwal sholat dari api.myquran.com
