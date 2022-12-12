@@ -43,18 +43,16 @@ Website summary jadwal sholat untuk masjid dengan beberapa fitur tambahan
   php artisan serve
 ```
 
-## License
-
-Copyright @2022 Abdurrahman Naufal
-
-Sistem Masjidmu is Open-Source And Under [MIT License](https://choosealicense.com/licenses/mit/)
-
-## Lessons Learned
-
-What did you learn while building this project? What challenges did you face and how did you overcome them?
-
 ## Features Used
 
 **Laravel Features used:** GuzzleHTTP
 
 **Javascript Features used:** moment.js, sweetalert2,
+
+**This Projectt is Still In Development**
+
+## License
+
+Copyright @2022 Abdurrahman Naufal
+
+Sistem Masjidmu is Open-Source And Under [MIT License](https://choosealicense.com/licenses/mit/)
