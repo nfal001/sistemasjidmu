@@ -47,45 +47,43 @@
                     })
                     .catch((error) => console.log("error", error));
             }
-            const checkTime = (scheduleData) => {
+
+            const getWaktuSekarang = () => {
+                return moment().format("HH:mm:ss dddd, DD MMMM yyyy");
+            }
+            
+            const checkTime = (scheduleData,BulanSekarang) => {
                 // console.log(scheduleData);
                 // const test = {
                 //     waktunya: "08:05:25",
                 //     waktu2: "08:05:55",
                 // };
+                const exactMonth = moment().format("MM");
+                // console.log(exactTime);
+                // console.log(BulanSekarang);
                 for (const [key, value] of Object.entries(scheduleData)) {
                     // console.log(key);
                     // console.log(value);
                     const thisTime = moment().format("HH:mm:ss");
-                    const schedule = moment(value, "HH:mm:ss").format("HH:mm:ss");
+                    const schedule = moment(value, "HH:mm").format("HH:mm:ss");
                     if (thisTime === schedule) {
-                        memasukiSholat();
+                        memasukiSholat(key);
                         // console.log('waktu sama popup');
                     }
                     // console.log(schedule)
                 }
-
+                if (BulanSekarang != exactMonth){
+                    // console.log('man');
+                    // console.log(`${window.location.origin}/api/v1/${kotaID}/${year}/11`);
+                    // window.location.href = `${window.location.origin}/summary/0108/2022/${exactMonth}`;
+                }
                 return;
             };
 
-            document.querySelector(".date").textContent =
-                moment().format("dddd, DD MMMM yyyy");
-
-            const live = (scheduleData) => {
-                const now = moment().format("HH:mm:ss dddd, DD MMMM yyyy");
-                const timeNow = moment().format("HH:mm:ss");
-                // console.log(`${now} ${scheduleDate}`);
-                document.querySelector(
-                    ".liveclock"
-                ).textContent = `sekarang jam: ${timeNow}`;
-
-                checkTime(scheduleData);
-                setTimeout(live, 1000, scheduleData);
-            };
-
-            const memasukiSholat = (seconds = 300) => {
+            const memasukiSholat = (sholat, seconds = 300) => {
+                // console.log(sholat+seconds);
                 return Swal.fire({
-                    title: "Memasuki Waktu Sholat!",
+                    title: `Memasuki Waktu Sholat ${sholat}!`,
                     html: "Hitung Waktu Mundur Iqomah <br/> <strong></strong> <br/><br/>",
                     timer: seconds * 1000,
                     didOpen: () => {
@@ -136,6 +134,23 @@
                 });
             };
 
+            document.querySelector(".date").textContecobant =
+                moment().format("dddd, DD MMMM yyyy");
+
+            const live = (scheduleData) => {
+                const now = moment().format("HH:mm:ss dddd, DD MMMM yyyy");
+                const timeNow = moment().format("HH:mm:ss");
+                // console.log(`${now} ${scheduleDate}`);
+                document.querySelector(
+                    ".liveclock"
+                ).textContent = `sekarang jam: ${timeNow}`;
+                let coba = 11;
+                checkTime(scheduleData,coba);
+                setTimeout(live, 1000, scheduleData);
+            };
+
+
+
             document.addEventListener("DOMContentLoaded", async function () {
                 // const now = moment().format("HH:mm:ss dddd, DD MMMM yyyy");
                 const kotaID = "{{$kotaID}}";
@@ -145,12 +160,15 @@
                 responses = await getSholatBulanan(kotaID, year, month); //kotaid,tahun,bulan
                 let data = responses.data;
                 ({ daerah, lokasi, jadwal, ...t1 } = data);
-
+                
                 // let tanggal = moment(now,"HH:mm:ss dddd, DD MMMM yyyy").date();
                 const chooseData = jadwal[moment().date() - 1];
                 // console.log(chooseData);
-
+                
                 ({ tanggal, terbit, dhuha, date, ...realjadwal } = chooseData);
+
+                // tanggalSekarang = moment(tanggal,"dddd, DD/MM/YYYY").format("DD");
+
                 // console.log(realjadwal);
                 // const sholat = [imsak,subuh,dzuhur,ashar,manghrib,isya];
 

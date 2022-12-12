@@ -4,6 +4,8 @@
 
 Demo: [https://youtu.be/QfkTETmJl3o](https://youtu.be/QfkTETmJl3o)
 
+Explaining: [https://youtu.be/UlZ--6HehHg](https://youtu.be/UlZ--6HehHg)
+
 **This Projectt is Still In Development, please expect some bug**
 
 Website summary jadwal sholat untuk masjid dengan beberapa fitur tambahan
@@ -24,10 +26,12 @@ Website summary jadwal sholat untuk masjid dengan beberapa fitur tambahan
 ### TODO
 
 -   [x] Summary Jadwal Sholat
--   [ ] dump data jadwal sholat dari api.myquran.com
+-   [x] Dump data jadwal sholat dari api.myquran.com
+-   [ ] Refresh Website Saat bulan beda
 -   [ ] Pengumuman dalam bentuk Running Text
--   [ ] Sistem Keuangan Masjid
--   [ ] Guide get started
+-   [ ] Sistem Keuangan Masjid (Dashboard)
+-   [ ] Onboarding Guider (Panduan Pertama)
+-   [ ] Redesign Summary Jadwal Sholat
 
 ##
 

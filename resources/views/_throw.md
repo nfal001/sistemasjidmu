@@ -60,3 +60,16 @@
                 // });
 
                         <!-- Object.keys(jadwal[0]).forEach(x=>console.log(`<p>${x}: ${jadwal[0][x]}</p>`)) -->
+
+
+
+
+        TODO Logic;
+         1.* done
+         1.! done
+
+         1.? done
+         2.? done
+         3.? done
+
+         1.: done

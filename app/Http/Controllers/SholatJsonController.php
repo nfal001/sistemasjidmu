@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -22,20 +24,12 @@ class SholatJsonController extends Controller
     {
 
         /*
-        TODO Logic;
+
         * 1. cek json dump di laravel
-         ! 1. dumpfileJSON 
-         ? 1. call api -> 2. save response body json to dumpStorage in to directory /{kotaID}/{year}/{month}.json -> 3. return response->json($dumpedFile)
-         : 1. return response->json($dumpedFile);
+        ! 1. dumpfileJSON 
+        ? 1. call api -> 2. save response body json to dumpStorage in to directory /{kotaID}/{year}/{month}.json -> 3. return response->json($responseJson)
+        : 1. return response->json($decodedFile);
 
-         1.* undone
-         1.! undone
-
-         1.? done
-         2.? undone
-         3.? undone
-
-         1.: undone
         */
         $validation = Validator::make([$kotaID, $year, $month], ['required|numeric', 'required|numeric', 'required|numeric']);
 
@@ -57,16 +51,26 @@ class SholatJsonController extends Controller
         // dd("$kotaID/$year/$month");
 
         $dumpedFile = Storage::disk('local')->get("json/$kotaID/$year/$month.json");
-        $decodedFile = json_decode($dumpedFile);
+        $decodedFile = json_decode($dumpedFile, true);
         // dd(json_decode($dumpedFile));
 
         if (is_null($dumpedFile)) :
             $request = Http::get("https://api.myquran.com/v1/sholat/jadwal/$kotaID/$year/$month");
             $responseJson =  json_decode($request->getBody(), true);
-            // dd($responseJson["status"]);
+
+            // dd((string)$request->getBody());
+
             if (!$responseJson["status"]) {
                 return response()->json(["status" => "false", "message" => "Data Tidak Ada"]);
             }
+
+            if (!Storage::disk('local')->exists("json/$kotaID")) {
+                Storage::disk('local')->makeDirectory("json/$kotaID");
+            } else if (!Storage::disk('local')->exists("json/$kotaID/$year")) {
+                Storage::disk('local')->makeDirectory("json/$kotaID/$year");
+            }
+            Storage::disk('local')->put("json/$kotaID/$year/$month.json", json_encode($responseJson));
+
             return response()->json($responseJson);
         endif;
 
