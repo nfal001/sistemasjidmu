@@ -2,6 +2,7 @@
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 
+**This Projectt is Still In Development, expect some bug**
 Website summary jadwal sholat untuk masjid dengan beberapa fitur tambahan
 
 ## Fitur
@@ -48,8 +49,6 @@ Website summary jadwal sholat untuk masjid dengan beberapa fitur tambahan
 **Laravel Features used:** GuzzleHTTP
 
 **Javascript Features used:** moment.js, sweetalert2,
-
-**This Projectt is Still In Development**
 
 ## License
 
