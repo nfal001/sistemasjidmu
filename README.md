@@ -32,6 +32,7 @@ Website summary jadwal sholat untuk masjid dengan beberapa fitur tambahan
 -   [ ] Sistem Keuangan Masjid (Dashboard)
 -   [ ] Onboarding Guider (Panduan Pertama)
 -   [ ] Redesign Summary Jadwal Sholat
+-   [ ] Refactoring Code untuk mempermudah pengembangan aplikasi
 
 ## Instalasi & Konfigurasi
 
