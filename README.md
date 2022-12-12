@@ -33,7 +33,7 @@ Website summary jadwal sholat untuk masjid dengan beberapa fitur tambahan
 -   [ ] Onboarding Guider (Panduan Pertama)
 -   [ ] Redesign Summary Jadwal Sholat
 
-##
+## Instalasi & Konfigurasi
 
 #### 1. Clone Repository
 
