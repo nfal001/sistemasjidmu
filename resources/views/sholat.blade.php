@@ -49,23 +49,22 @@
             }
             const checkTime = (scheduleData) => {
                 // console.log(scheduleData);
-                const test = {
-                    waktunya: "21:54",
-                    waktu2: "21:55",
-                };
-                for (const [key, value] of Object.entries(test)) {
+                // const test = {
+                //     waktunya: "08:05:25",
+                //     waktu2: "08:05:55",
+                // };
+                for (const [key, value] of Object.entries(scheduleData)) {
+                    // console.log(key);
+                    // console.log(value);
                     const thisTime = moment().format("HH:mm:ss");
-                    const schedule = moment(value, "HH:mm").format("HH:mm:ss");
+                    const schedule = moment(value, "HH:mm:ss").format("HH:mm:ss");
                     if (thisTime === schedule) {
-                        memasukiSholat(6);
+                        memasukiSholat();
                         // console.log('waktu sama popup');
                     }
                     // console.log(schedule)
                 }
 
-                //    if(moment(a, "dddd, DD MMMM yyyy").date() === moment().date()){
-                //     alert('sama');
-                //    }
                 return;
             };
 

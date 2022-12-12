@@ -56,7 +56,6 @@ Website summary jadwal sholat untuk masjid dengan beberapa fitur tambahan
 ```
  http://127.0.0.1:8000/summary/1608/2022/12
  http://127.0.0.1:8000/summary/{kotaID}/{year}/{month}
-
 ```
 
 #### 3. API link
@@ -64,7 +63,6 @@ Website summary jadwal sholat untuk masjid dengan beberapa fitur tambahan
 ```
  http://127.0.0.1:8000/api/v1/sholat/0109/2023/06
  http://127.0.0.1:8000/api/v1/sholat/{kotaID}/{year}/{month}
-
 ```
 
 ## Features Used
