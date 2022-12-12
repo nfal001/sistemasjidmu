@@ -33,6 +33,9 @@ Website summary jadwal sholat untuk masjid dengan beberapa fitur tambahan
 -   [ ] Onboarding Guider (Panduan Pertama)
 -   [ ] Redesign Summary Jadwal Sholat
 -   [ ] Refactoring Code untuk mempermudah pengembangan aplikasi
+-   [ ] Simpan API respose cache ke browser
+-   [ ] Improvement API sistemasjidmu
+-   [ ] Penambahan fitur API jadwal Harian, Jadwal Tahunan
 
 ## Instalasi & Konfigurasi
 

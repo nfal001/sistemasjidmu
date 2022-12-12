@@ -80,7 +80,7 @@
                 return;
             };
 
-            const memasukiSholat = (sholat, seconds = 300) => {
+            const memasukiSholat = (sholat, seconds = 600) => {
                 // console.log(sholat+seconds);
                 return Swal.fire({
                     title: `Memasuki Waktu Sholat ${sholat}!`,
