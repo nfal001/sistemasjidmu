@@ -1,3 +1,5 @@
+import Swal from "sweetalert2";
+
 let responses, daerah, lokasi, jadwal, realjadwal, t1;
 async function getSholatBulanan(kotaID, tahun, bulan) {
     // let jobs;
@@ -70,7 +72,7 @@ const memasukiSholat = (sholat, seconds = 600) => {
                 resume.disabled = Swal.isTimerRunning();
             }
 
-            const timerInterval = setInterval(() => {
+            timerInterval = setInterval(() => {
                 Swal.getHtmlContainer().querySelector("strong").textContent =
                     moment
                         .utc(Swal.getTimerLeft())

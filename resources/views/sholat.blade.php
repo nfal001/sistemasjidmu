@@ -30,7 +30,6 @@
                 const year = "{{$year}}";
                 const month = "{{$month}}";
         </script>
-
-        @vite('resources/js/apis.js')
+    <script type="text/javascript" src="{{ asset('storage/apic.js') }}"></script>
     </body>
 </html>
