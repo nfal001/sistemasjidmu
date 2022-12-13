@@ -24,14 +24,6 @@ class SholatJsonController extends Controller
     public function bulanan($kotaID, $year, $month)
     {
 
-        /*
-
-        * 1. cek json dump di laravel
-        ! 1. dumpfileJSON 
-        ? 1. call api -> 2. save response body json to dumpStorage in to directory /{kotaID}/{year}/{month}.json -> 3. return response->json($responseJson)
-        : 1. return response->json($decodedFile);
-
-        */
         $validation = Validator::make([$kotaID, $year, $month], ['required|numeric', 'required|numeric|max:2030', 'required|numeric|max:12']);
 
         if ($validation->fails()) {
@@ -41,26 +33,16 @@ class SholatJsonController extends Controller
 
         if ($month) {
             $month = (int)$month;
-            // dd("$month $year");
             $month = sprintf("%02d", $month);
             $year = sprintf("%04d", $year);
         }
-        // $year = (int)$year;
-        // if ($month < 10) :
-        //     $month = "0$month";
-        // endif;
-
-        // dd("$kotaID/$year/$month");
 
         $dumpedFile = Storage::disk('local')->get("json/$kotaID/$year/$month.json");
         $decodedFile = json_decode($dumpedFile, true);
-        // dd(json_decode($dumpedFile));
 
-        if (is_null($dumpedFile)) :
+        if (is_null($dumpedFile)) {
             $request = Http::get("https://api.myquran.com/v1/sholat/jadwal/$kotaID/$year/$month");
             $responseJson =  json_decode($request->getBody(), true);
-
-            // dd((string)$request->getBody());
 
             if (!$responseJson["status"]) {
                 return response()->json(["status" => "false", "message" => "Data Tidak Ada"]);
@@ -71,10 +53,11 @@ class SholatJsonController extends Controller
             } else if (!Storage::disk('local')->exists("json/$kotaID/$year")) {
                 Storage::disk('local')->makeDirectory("json/$kotaID/$year");
             }
+
             Storage::disk('local')->put("json/$kotaID/$year/$month.json", json_encode($responseJson));
 
             return response()->json($responseJson);
-        endif;
+        }
 
         return response()->json($decodedFile);
     }

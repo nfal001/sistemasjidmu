@@ -80,8 +80,8 @@ const memasukiSholat = (sholat, seconds = 600) => {
         willClose: () => {
             clearInterval(timerInterval);
         },
-    }).then((result) => {
         /* Read more about handling dismissals below */
+    }).then((result) => {
         if (result.dismiss === Swal.DismissReason.timer) {
             Swal.fire({
                 title: "Waktunya IQOMAH",
@@ -106,7 +106,7 @@ const memasukiSholat = (sholat, seconds = 600) => {
     });
 };
 
-document.querySelector(".date").textContecobant =
+document.querySelector(".date").textContent =
     moment().format("dddd, DD MMMM yyyy");
 
 const live = (scheduleData) => {
