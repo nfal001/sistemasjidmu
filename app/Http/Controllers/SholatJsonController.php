@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SholatJson;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\File;
@@ -31,11 +32,12 @@ class SholatJsonController extends Controller
         : 1. return response->json($decodedFile);
 
         */
-        $validation = Validator::make([$kotaID, $year, $month], ['required|numeric', 'required|numeric', 'required|numeric']);
+        $validation = Validator::make([$kotaID, $year, $month], ['required|numeric', 'required|numeric|max:2030', 'required|numeric|max:12']);
 
         if ($validation->fails()) {
             return response()->json(["status" => "false", "message" => "Inputan Salah atau datanya juga"]);
         }
+        // SholatJson::getBulanan($kotaID, $year, $month);
 
         if ($month) {
             $month = (int)$month;
@@ -75,8 +77,6 @@ class SholatJsonController extends Controller
         endif;
 
         return response()->json($decodedFile);
-
-        // return response()->json(json_decode(file_get_contents("https://api.myquran.com/v1/sholat/jadwal/$kotaID/$year/$month"), true));
     }
 
     /**
