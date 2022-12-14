@@ -2,9 +2,9 @@
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 
-Demo: [https://youtu.be/QfkTETmJl3o](https://youtu.be/QfkTETmJl3o)
+(Legacy) Demo: [https://youtu.be/QfkTETmJl3o](https://youtu.be/QfkTETmJl3o)
 
-Explaining: [https://youtu.be/UlZ--6HehHg](https://youtu.be/UlZ--6HehHg)
+(Legacy) Explaining: [https://youtu.be/UlZ--6HehHg](https://youtu.be/UlZ--6HehHg)
 
 **This Projectt is Still In Development, please expect some bug**
 
