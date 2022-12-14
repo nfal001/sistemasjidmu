@@ -12,9 +12,9 @@ Website summary jadwal sholat untuk masjid dengan beberapa fitur tambahan
 
 ## Preview
 
-![App Screenshot](https://raw.githubusercontent.com/nfal001/sistemasjidmu/master/.github/SS.jpg)
+![App Screenshot](https://raw.githubusercontent.com/nfal001/sistemasjidmu/dev/.github/SS__62.jpg)
 
-![App Screenshot1](https://raw.githubusercontent.com/nfal001/sistemasjidmu/master/.github/SS__40.jpg)
+![App Screenshot1](https://raw.githubusercontent.com/nfal001/sistemasjidmu/dev/.github/SS__60.jpg)
 
 ## Fitur
 
