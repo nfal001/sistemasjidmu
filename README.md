@@ -27,11 +27,12 @@ Website summary jadwal sholat untuk masjid dengan beberapa fitur tambahan
 
 -   [x] Summary Jadwal Sholat
 -   [x] Dump data jadwal sholat dari api.myquran.com
--   [ ] Refresh Website Saat bulan beda
+-   [x] Redesign Summary Jadwal Sholat
+-   [x] Ganti Jadwal Saat Bulan berubah
+-   [ ] Ganti Jadwal Saat tanggal berubah
 -   [ ] Pengumuman dalam bentuk Running Text
 -   [ ] Sistem Keuangan Masjid (Dashboard)
 -   [ ] Onboarding Guider (Panduan Pertama)
--   [ ] Redesign Summary Jadwal Sholat
 -   [ ] Refactoring Code untuk mempermudah pengembangan aplikasi
 -   [ ] Improvement API sistemasjidmu
 -   [ ] Penambahan fitur API jadwal Harian, Jadwal Tahunan
