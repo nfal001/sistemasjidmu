@@ -1,4 +1,6 @@
 let responses, daerah, lokasi, jadwal, realjadwal, t1;
+const standardFullTimeFormat = "HH:mm:ss dddd, DD MMMM yyyy";
+const hms = "HH:mm:ss";
 async function getSholatBulanan(kotaID, tahun, bulan) {
     // let jobs;
     const property = {
@@ -21,16 +23,17 @@ async function getSholatBulanan(kotaID, tahun, bulan) {
 }
 
 const getWaktuSekarang = () => {
-    return moment().format("HH:mm:ss dddd, DD MMMM yyyy");
+    return moment().format(standardFullTimeFormat);
 };
 
-const checkTime = (scheduleData, BulanSekarang) => {
+const checkTime = (scheduleData, BulanJadwal) => {
     // console.log(scheduleData);
     // const test = {
     //     waktunya: "08:05:25",
     //     waktu2: "08:05:55",
     // };
     const exactMonth = moment().format("MM");
+    const exactYear = moment().format("YYYY");
     // console.log(exactTime);
     // console.log(BulanSekarang);
     for (const [key, value] of Object.entries(scheduleData)) {
@@ -40,90 +43,118 @@ const checkTime = (scheduleData, BulanSekarang) => {
         const schedule = moment(value, "HH:mm").format("HH:mm:ss");
         if (thisTime === schedule) {
             memasukiSholat(key);
-            // console.log('waktu sama popup');
         }
         // console.log(schedule)
     }
-    if (BulanSekarang != exactMonth) {
+    if (BulanJadwal != exactMonth) {
+        console.log(BulanJadwal, exactMonth);
         // console.log('man');
         // console.log(`${window.location.origin}/api/v1/${kotaID}/${year}/11`);
-        // window.location.href = `${window.location.origin}/summary/0108/2022/${exactMonth}`;
+        window.location.href = `${window.location.origin}/summary/${kotaID}/${exactYear}/${exactMonth}`;
     }
     return;
 };
 
 const memasukiSholat = (sholat, seconds = 600) => {
     // console.log(sholat+seconds);
-    return Swal.fire({
-        title: `Memasuki Waktu Sholat ${sholat}!`,
-        html: "Hitung Waktu Mundur Iqomah <br/> <strong></strong> <br/><br/>",
-        timer: seconds * 1000,
-        showConfirmButton: false,
-        didOpen: () => {
-            const content = Swal.getHtmlContainer();
-            const $ = content.querySelector.bind(content);
+    sholat == "imsak"
+        ? Swal.fire({
+              title: `Memasuki Waktu ${sholat}!`,
+              html: `Waktunya Berhenti Sahur Dalam<br/> <strong></strong> <br/><br/>`,
+              timer: seconds * 1000,
+              showConfirmButton: false,
+              didOpen: () => {
+                  const content = Swal.getHtmlContainer();
+                  const $ = content.querySelector.bind(content);
 
-            // Swal.showLoading();
+                  // Swal.showLoading();
 
-            function toggleButtons() {
-                stop.disabled = !Swal.isTimerRunning();
-                resume.disabled = Swal.isTimerRunning();
-            }
+                  function toggleButtons() {
+                      stop.disabled = !Swal.isTimerRunning();
+                      resume.disabled = Swal.isTimerRunning();
+                  }
 
-            timerInterval = setInterval(() => {
-                Swal.getHtmlContainer().querySelector("strong").textContent =
-                    moment
-                        .utc(Swal.getTimerLeft())
-                        .format("mm [menit] ss [detik]");
-            }, 100);
-        },
-        willClose: () => {
-            clearInterval(timerInterval);
-        },
-        /* Read more about handling dismissals below */
-    }).then((result) => {
-        if (result.dismiss === Swal.DismissReason.timer) {
-            Swal.fire({
-                title: "Waktunya IQOMAH",
-                html: "menutup dalam <b></b>",
-                timer: 40000,
-                showConfirmButton: false,
-                // timerProgressBar: true,
-                didOpen: () => {
-                    // Swal.showLoading();
-                    const b = Swal.getHtmlContainer().querySelector("b");
-                    timerInterval = setInterval(() => {
-                        b.textContent = moment
-                            .utc(Swal.getTimerLeft())
-                            .format("mm [menit] ss [detik]");
-                    }, 100);
-                },
-                willClose: () => {
-                    clearInterval(timerInterval);
-                },
-            });
-        }
-    });
+                  timerInterval = setInterval(() => {
+                      Swal.getHtmlContainer().querySelector(
+                          "strong"
+                      ).textContent = moment
+                          .utc(Swal.getTimerLeft())
+                          .format("mm [menit] ss [detik]");
+                  }, 100);
+              },
+              willClose: () => {
+                  clearInterval(timerInterval);
+              },
+          })
+        : Swal.fire({
+              title: `Memasuki Waktu Sholat ${sholat}!`,
+              html: "Hitung Waktu Mundur Iqomah <br/> <strong></strong> <br/><br/>",
+              timer: seconds * 1000,
+              showConfirmButton: false,
+              didOpen: () => {
+                  const content = Swal.getHtmlContainer();
+                  const $ = content.querySelector.bind(content);
+
+                  // Swal.showLoading();
+
+                  function toggleButtons() {
+                      stop.disabled = !Swal.isTimerRunning();
+                      resume.disabled = Swal.isTimerRunning();
+                  }
+
+                  timerInterval = setInterval(() => {
+                      Swal.getHtmlContainer().querySelector(
+                          "strong"
+                      ).textContent = moment
+                          .utc(Swal.getTimerLeft())
+                          .format("mm [menit] ss [detik]");
+                  }, 100);
+              },
+              willClose: () => {
+                  clearInterval(timerInterval);
+              },
+          }).then((result) => {
+              if (result.dismiss === Swal.DismissReason.timer) {
+                  Swal.fire({
+                      title: "Waktunya IQOMAH",
+                      html: "menutup dalam <b></b>",
+                      timer: 40000,
+                      showConfirmButton: false,
+                      // timerProgressBar: true,
+                      didOpen: () => {
+                          // Swal.showLoading();
+                          const b = Swal.getHtmlContainer().querySelector("b");
+                          timerInterval = setInterval(() => {
+                              b.textContent = moment
+                                  .utc(Swal.getTimerLeft())
+                                  .format("mm [menit] ss [detik]");
+                          }, 100);
+                      },
+                      willClose: () => {
+                          clearInterval(timerInterval);
+                      },
+                  });
+              }
+          });
 };
 
 document.querySelector(".date").textContent =
     moment().format("dddd, DD MMMM yyyy");
 
 const live = (scheduleData) => {
-    const now = moment().format("HH:mm:ss dddd, DD MMMM yyyy");
+    const now = getWaktuSekarang();
     const timeNow = moment().format("HH:mm:ss");
-    // console.log(`${now} ${scheduleDate}`);
+    // console.log(`${now} ${scheduleData}`);
+    // console.log(tanggal);
+    const BulanJadwal = moment(tanggal, "dddd, DD/MM/YYYY").format("MM");
     document.querySelector(
         ".liveclock"
     ).textContent = `sekarang jam: ${timeNow}`;
-    let coba = 11;
-    checkTime(scheduleData, coba);
+    checkTime(scheduleData, BulanJadwal);
     setTimeout(live, 1000, scheduleData);
 };
 
 document.addEventListener("DOMContentLoaded", async function () {
-    // const now = moment().format("HH:mm:ss dddd, DD MMMM yyyy");
-
     responses = await getSholatBulanan(kotaID, year, month); //kotaid,tahun,bulan
     const data = responses.data;
     ({ daerah, lokasi, jadwal, ...t1 } = data);

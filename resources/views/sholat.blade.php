@@ -11,6 +11,17 @@
         <title>Masjid Al-Habib</title>
     </head>
     <body style="text-align: center">
+
+        {{--
+             class needed:
+
+             .kabupaten : show lokasi Kabupaten
+             .provinsi : SHow Lokasi Provinsi
+             .date : show tanggal sekarang
+             .liveclock : show live jam
+             .sholat : show list Jadwal Sholat
+         --}}
+
         Ini Waktu Sholat
         <h2>Masjid Al-Habib</h2>
         <div class="lokasi">
@@ -23,7 +34,6 @@
         <div class="sholat flex">
             <h4>Jadwal Sholat</h4>
         </div>
-        <div class="countdown"></div>
 
         <script>
                 const kotaID = "{{$kotaID}}";
