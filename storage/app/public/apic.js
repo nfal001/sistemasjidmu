@@ -88,7 +88,9 @@ const memasukiSholat = (sholat, seconds = 600) => {
           })
         : Swal.fire({
               title: `Memasuki Waktu Sholat ${sholat}!`,
-              html: "Hitung Waktu Mundur Iqomah <br/> <strong></strong> <br/><br/>",
+              html: `
+              Hitung Waktu Mundur Iqomah <br/> <strong></strong> <br/><br/>
+              `,
               timer: seconds * 1000,
               showConfirmButton: false,
               didOpen: () => {
@@ -147,9 +149,7 @@ const live = (scheduleData) => {
     // console.log(`${now} ${scheduleData}`);
     // console.log(tanggal);
     const BulanJadwal = moment(tanggal, "dddd, DD/MM/YYYY").format("MM");
-    document.querySelector(
-        ".liveclock"
-    ).textContent = `sekarang jam: ${timeNow}`;
+    document.querySelector(".liveclock").textContent = `${timeNow}`;
     checkTime(scheduleData, BulanJadwal);
     setTimeout(live, 1000, scheduleData);
 };
@@ -176,10 +176,28 @@ document.addEventListener("DOMContentLoaded", async function () {
     document.querySelector(".provinsi").textContent = daerah.toLowerCase();
     Object.keys(realjadwal).forEach(
         (x) =>
-            (document.querySelector(
-                ".sholat"
-            ).innerHTML += `<p>${x}: ${realjadwal[x]}</p>`)
+            (document.querySelector(".sholat").innerHTML += `
+            <div
+            class="jadwal imsak text-center font-bold bg-[#077E04] rounded-2xl">
+            <div
+              class="judul bg-white xl:px-11 lg:px-8 py-5 lg:py-3 xl:text-4xl lg:text-2xl text-[#077E04] rounded-2xl">
+              ${x}
+            </div>
+            <div class="waktu xl:px-11 lg:px-8 py-6 lg:py-4 xl:text-6xl lg:text-4xl text-white">
+              ${realjadwal[x]}
+            </div>
+          </div>
+            `)
     );
+    const swiper = new Swiper(".swiper", {
+        // Optional parameters
+        direction: "horizontal",
+        loop: true,
+        autoplay: {
+            delay: 2000,
+            disableOnInteraction: false,
+        },
+    });
     live(realjadwal);
     // Object.getOwnPropertyNames(jadwal[0]).map((y)=> console.log(`${y}: ${jadwal[0][y]}`))
 });
