@@ -2,9 +2,11 @@
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 
-Demo: [https://youtu.be/QfkTETmJl3o](https://youtu.be/QfkTETmJl3o)
+Explaining: [https://youtu.be/E7BDIRv23ws](https://youtu.be/E7BDIRv23ws)
 
-Explaining: [https://youtu.be/UlZ--6HehHg](https://youtu.be/UlZ--6HehHg)
+(Legacy) Demo: [https://youtu.be/QfkTETmJl3o](https://youtu.be/QfkTETmJl3o)
+
+(Legacy) Explaining: [https://youtu.be/UlZ--6HehHg](https://youtu.be/UlZ--6HehHg)
 
 **This Projectt is Still In Development, please expect some bug**
 
@@ -12,9 +14,9 @@ Website summary jadwal sholat untuk masjid dengan beberapa fitur tambahan
 
 ## Preview
 
-![App Screenshot](https://raw.githubusercontent.com/nfal001/sistemasjidmu/master/.github/SS.jpg)
+![App Screenshot](https://raw.githubusercontent.com/nfal001/sistemasjidmu/dev/.github/SS__62.jpg)
 
-![App Screenshot1](https://raw.githubusercontent.com/nfal001/sistemasjidmu/master/.github/SS__40.jpg)
+![App Screenshot1](https://raw.githubusercontent.com/nfal001/sistemasjidmu/dev/.github/SS__60.jpg)
 
 ## Fitur
 
@@ -27,11 +29,12 @@ Website summary jadwal sholat untuk masjid dengan beberapa fitur tambahan
 
 -   [x] Summary Jadwal Sholat
 -   [x] Dump data jadwal sholat dari api.myquran.com
--   [ ] Refresh Website Saat bulan beda
--   [ ] Pengumuman dalam bentuk Running Text
+-   [x] Redesign Summary Jadwal Sholat
+-   [x] Ganti Jadwal Saat Bulan berubah
+-   [x] Ganti Jadwal Saat tanggal berubah
+-   [ ] Pengumuman dalam bentuk Running Text dihubungkan dengan database.
 -   [ ] Sistem Keuangan Masjid (Dashboard)
 -   [ ] Onboarding Guider (Panduan Pertama)
--   [ ] Redesign Summary Jadwal Sholat
 -   [ ] Refactoring Code untuk mempermudah pengembangan aplikasi
 -   [ ] Improvement API sistemasjidmu
 -   [ ] Penambahan fitur API jadwal Harian, Jadwal Tahunan

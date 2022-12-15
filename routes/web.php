@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/summary', function () {
-    return view('sholat');
+    return "Data Kurang";
 });
 
 Route::get(
