@@ -2,6 +2,8 @@
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 
+Explaining: [https://youtu.be/E7BDIRv23ws](https://youtu.be/E7BDIRv23ws)
+
 (Legacy) Demo: [https://youtu.be/QfkTETmJl3o](https://youtu.be/QfkTETmJl3o)
 
 (Legacy) Explaining: [https://youtu.be/UlZ--6HehHg](https://youtu.be/UlZ--6HehHg)
@@ -29,8 +31,8 @@ Website summary jadwal sholat untuk masjid dengan beberapa fitur tambahan
 -   [x] Dump data jadwal sholat dari api.myquran.com
 -   [x] Redesign Summary Jadwal Sholat
 -   [x] Ganti Jadwal Saat Bulan berubah
--   [ ] Ganti Jadwal Saat tanggal berubah
--   [ ] Pengumuman dalam bentuk Running Text
+-   [x] Ganti Jadwal Saat tanggal berubah
+-   [ ] Pengumuman dalam bentuk Running Text dihubungkan dengan database.
 -   [ ] Sistem Keuangan Masjid (Dashboard)
 -   [ ] Onboarding Guider (Panduan Pertama)
 -   [ ] Refactoring Code untuk mempermudah pengembangan aplikasi

@@ -252,3 +252,5 @@ return true;
             });
         </script>
 ```
+
+moment.duration(moment(realjadwal.imsak,"HH:mm").diff(moment(realjadwal.isya,"HH:mm"))).format("HH:mm")

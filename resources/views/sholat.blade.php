@@ -29,6 +29,7 @@
     </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment-hijri@2.1.2/moment-hijri.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-duration-format/2.3.2/moment-duration-format.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/locale/id.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -70,7 +71,7 @@
             <p class="date"></p>
           </div>
           <div class="text-xs lg:text-xl xl:text-3xl font-normal">
-            <p>10 Dzulhijjah 1440 H</p>
+            <p class="hijri"></p>
           </div>
         </div>
       </header>
@@ -82,7 +83,7 @@
             <!-- Slides -->
             <div
               class="swiper-slide jadwal-sholat p-10 lg:p-6 bg-[#C5FFBC]/50 flex flex-col justify-end"
-              data-swiper-autoplay="60000">
+              data-swiper-autoplay="15000">
               <div
                 class="sholat flex flex-row gap-6 justify-center justify-items-center">
                 {{-- <div

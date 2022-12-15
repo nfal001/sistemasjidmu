@@ -14,7 +14,7 @@ class SummaryController extends Controller
      */
     public function index($kotaID, $year, $month)
     {
-        $validation = Validator::make([$kotaID, $year, $month], ['numeric', 'numeric', 'numeric']);
+        $validation = Validator::make([$kotaID, $year, $month], ['numeric', 'numeric|max:2030', 'numeric|max:12']);
         if ($validation->fails()) :
             return response('data masuk salah');
         endif;
